@@ -11,7 +11,7 @@ try:
         if choix_menu.lower() == "1" or choix_menu.lower() == "menu":
             print("1. Lister les tâches",
                 '\n'"2. Ajouter une tâche",
-                '\n'"3. Changer le statut d'une tâche",
+                '\n'"3. Modifier une tâche",
                 '\n'"4. Supprimer une tâche",
                 '\n'"5. Quitter")
         if choix_menu.lower() == "2" or choix_menu.lower() == "5" or choix_menu.lower() == "quitter":
