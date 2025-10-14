@@ -19,13 +19,13 @@ try:
         if choix_menu.lower() == "2" or choix_menu.lower() == "5" or choix_menu.lower() == "quitter":
             print("A bientot !")
             break
-        if choix_menu.lower() == "1" or choix_menu.lower() == "lister les tâches":
+        elif choix_menu.lower() == "1" or choix_menu.lower() == "lister les tâches":
             print("Voici la liste de vos tâches :")
-        if choix_menu.lower() == "2" or choix_menu.lower() == "ajouter une tâche":
+        elif choix_menu.lower() == "2" or choix_menu.lower() == "ajouter une tâche":
             print("Ajouter une tâche")
-        if choix_menu.lower() == "3" or choix_menu.lower() == "modifier une tâche":
+        elif choix_menu.lower() == "3" or choix_menu.lower() == "modifier une tâche":
             print("Modifier une tâche")
-        if choix_menu.lower() == "4" or choix_menu.lower() == "supprimer une tâche":
+        elif choix_menu.lower() == "4" or choix_menu.lower() == "supprimer une tâche":
             print("Supprimer une tâche")
 except ValueError:
     print("Erreur")
