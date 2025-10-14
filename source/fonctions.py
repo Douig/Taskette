@@ -1,12 +1,5 @@
-import locale
-from datetime import datetime
 from models import tache
-
-def date_tache():
-    locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")
-    valeur = datetime.now()
-    temps = valeur.strftime("%d %B %Y à %Hh%M")
-    return temps
+from utils import date_tache
 
 def _prochain_id(taches: list) -> int:
     """Retourne l'ID suivant (1 si la liste est vide)."""
@@ -36,3 +29,15 @@ def creer_tache(taches: list, titre: str) -> dict:
 
     taches.append(tache)
     return tache
+
+# Cette fonction cherche une tâche par son ID et nous la retourne.
+def trouver_tache_par_id(taches: list, id_tache: int) -> dict:
+    # On parcourt chaque tâche dans notre liste de tâches
+    for tache in taches:
+        # Si l'ID de la tâche qu'on regarde est celui qu'on cherche...
+        if tache["id"] == id_tache:
+            # ... alors on a trouvé ! On retourne cette tâche.
+            return tache
+    
+    # Si on a fini la boucle sans rien trouver, on retourne "Rien" (None).
+    return None
