@@ -65,7 +65,7 @@ def trouver_tache_par_id(taches, id_tache):
     for tache in taches:
         # Si l'ID de la tâche qu'on regarde est celui qu'on cherche
         if tache["id"] == id_tache:
-            # On a trouvé ! On retourne la tâche (le dictionnaire)
+            # On retourne la tâche (le dictionnaire)
             return tache
     
     # Si on a fini la boucle sans rien trouver, on retourne "Rien"
