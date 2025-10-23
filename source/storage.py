@@ -1,21 +1,31 @@
+# On importe 'json' pour que Python comprenne comment
+# transformer nos listes en texte et inversement.
 import json
 
-def charger_taches(fichier: str) -> list:
+def charger_taches(fichier):
     """
-    Charge les tâches depuis un fichier JSON.
-    Retourne une liste vide si le fichier n'existe pas ou est invalide.
+    Essaie de lire le fichier JSON.
+    S'il n'existe pas ou est vide, retourne une liste vide [].
     """
     try:
+        # 'with open' est la façon propre d'ouvrir un fichier
+        # 'r' veut dire "read" (lire)
         with open(fichier, 'r', encoding='utf-8') as f:
+            # On demande à json de "charger" (load) le contenu du fichier
             return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        # Si le fichier n'est pas trouvé ou s'il est vide/corrompu,
-        # on commence avec une liste de tâches vide.
+    except:
+        # S'il y a la moindre erreur (fichier pas trouvé, fichier vide...)
+        # on ne panique pas et on retourne juste une liste vide.
         return []
 
-def sauvegarder_taches(taches: list, fichier: str):
-    """Sauvegarde la liste complète des tâches dans un fichier JSON."""
+def sauvegarder_taches(taches, fichier):
+    """
+    Écrit la liste complète des tâches dans le fichier JSON.
+    """
+    # 'w' veut dire "write" (écrire). ATTENTION: ça écrase l'ancien contenu.
     with open(fichier, 'w', encoding='utf-8') as f:
-        # indent=4 pour que le fichier JSON soit lisible par un humain
-        # ensure_ascii=False pour bien gérer les accents comme 'é', 'à', etc.
+        # On demande à json de "jeter" (dump) nos données dans le fichier
+        # indent=4 : C'est pour que le fichier soit joli et lisible
+        # ensure_ascii=False : C'est TRÈS important pour que les accents
+        # (comme "à" ou "é") soient bien enregistrés.
         json.dump(taches, f, indent=4, ensure_ascii=False)
